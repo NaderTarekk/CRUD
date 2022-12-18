@@ -1,0 +1,55 @@
+<div class="container">
+    <section id="content">
+        <form [formGroup]="Form">
+            <h1>Add Users</h1>
+
+            <span class="text-danger" *ngIf="username?.dirty && username?.touched && username?.invalid">
+                <span *ngIf="username?.errors?.['required']">username required</span>
+                <span *ngIf="username?.errors?.['minlength']">username must contain at least 2 characters</span>
+            </span>
+            <div class="inputs">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" placeholder="Username" formControlName="username" id="password" />
+            </div>
+
+            <span class="text-danger" *ngIf="email?.dirty && email?.touched && email?.invalid">
+                <span *ngIf="email?.errors?.['required']">email required</span>
+                <span *ngIf="email?.errors?.['email']">wrong email</span>
+            </span>
+            <div class="inputs">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" placeholder="Email" formControlName="email" id="password" />
+            </div>
+
+            <span class="text-danger" *ngIf="password?.dirty && password?.touched && password?.invalid">
+                <span *ngIf="password?.errors?.['required']">password required</span>
+                <span *ngIf="password?.errors?.['minlength']">password must contain at least 8 characters</span>
+            </span>
+            <div class="inputs">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" placeholder="Password" formControlName="password" id="password" />
+            </div>
+
+            <span class="text-danger" *ngIf="age?.dirty && age?.touched && age?.invalid">
+                <span *ngIf="age?.errors?.['required']">age required</span>
+                <span *ngIf="age?.errors?.['max']">maximum age is 60</span>
+            </span>
+            <div class="inputs">
+                <i class="fa-solid fa-calendar-days"></i>
+                <input type="text" placeholder="Age" formControlName="age" id="password" />
+            </div>
+
+            <span class="text-danger" *ngIf="country?.dirty && country?.touched && country?.invalid">
+                <span *ngIf="country?.errors?.['required']">country required</span>
+            </span>
+            <div class="inputs">
+                <i class="fa-solid fa-globe"></i>
+                <input type="text" placeholder="Country" formControlName="country" id="password" />
+            </div>
+            <div>
+                <button class="submit btn" (click)="postData()" value="Add User" [disabled]="Form.invalid">Add
+                    User</button>
+            </div>
+        </form>
+    </section>
+</div>

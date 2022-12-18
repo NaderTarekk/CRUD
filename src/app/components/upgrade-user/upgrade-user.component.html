@@ -1,0 +1,37 @@
+<div class="container">
+    <section id="content">
+        <form [formGroup]="Form">
+            <h1>Add Users</h1>
+
+            <div class="inputs">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" [(ngModel)]="data.username" formControlName="username" id="password" />
+            </div>
+
+            <div class="inputs">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" [(ngModel)]="data.email" formControlName="email" id="password" />
+            </div>
+
+            <div class="inputs">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" [(ngModel)]="data.password" formControlName="password" id="password" />
+            </div>
+
+            <div class="inputs">
+                <i class="fa-solid fa-calendar-days"></i>
+                <input type="text" [(ngModel)]="data.age" formControlName="age" id="password" />
+            </div>
+
+            <div class="inputs">
+                <i class="fa-solid fa-globe"></i>
+                <input type="text" [(ngModel)]="data.country" formControlName="country" id="password" />
+            </div>
+
+            <div>
+                <button class="submit btn" value="Add User" (click)="edit()">Update
+                    User</button>
+            </div>
+        </form>
+    </section>
+</div>

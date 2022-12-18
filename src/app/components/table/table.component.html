@@ -1,0 +1,65 @@
+<section>
+    <!--for demo wrap-->
+    <h1>CRUD Project</h1>
+    <div class="text-end">
+        <button class="my-3 btn btn-outline-info text-light" routerLink="/addUser">add user</button>
+    </div>
+
+    <input type="text" class="form-control w-25 my-3" [(ngModel)]="searchText" placeholder="Search By anything...">
+
+    <div class="tbl-header">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Age</th>
+                    <th>Country</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="tbl-content">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+                <tr *ngFor="let user of data | filter:searchText; let i = index">
+                    <td>{{user.id}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.password}}</td>
+                    <td>{{user.age}}</td>
+                    <td>{{user.country}}</td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-info text-light dropdown-toggle" type="button"
+                                id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                Action
+                            </button>
+                            <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton1">
+                                <li (click)="deleteOneUser(user.id)"><a class="dropdown-item text-info"><i
+                                            class="fa-solid fa-trash"></i> Delete</a></li>
+                                <li><a class="dropdown-item text-info" routerLink="/view/{{user.id}}"><i
+                                            class="fa-solid fa-eye"></i> View</a></li>
+                                <li><a class="dropdown-item text-info" routerLink="/upgrade/{{user.id}}"><i
+                                            class="fa-solid fa-pen"></i> Update</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+
+            <span *ngIf="noData">No Data Yet!</span>
+        </table>
+    </div>
+</section>
+
+
+<!-- follow me template -->
+<div class="made-with-love">
+    Made with
+    <i>♥</i> by
+    <a target="_blank" href="">Nader Tarek</a>
+</div>
